@@ -1,4 +1,4 @@
-<ion-view title="Userlists">
+<ion-view title="UserLists">
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
@@ -10,7 +10,8 @@
       </ion-item>
       -->
       <a class="item item-thumbnail-left" ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
-        <img src="cover.jpg">
+        <!--<i class="ion-android-social-user"/>-->
+        <img src="img/ic_person_grey600_48dp.png">
         <h2>{{playlist.title}}</h2>
         <p>Nine Inch Nails</p>
       </a>
