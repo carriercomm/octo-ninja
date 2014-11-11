@@ -15,4 +15,6 @@ reference:
 
 http://spring.io/guides/
 
-http://mean.io/
+http://blog.pivotal.io/pivotal/case-studies-2/mobile-video-big-data-architecture-with-spring-xdhadoophawqredis-measuring-live-usage
+
+http://www.apilia.pl/real-time-analytics-with-spring-xd/?lang=en
