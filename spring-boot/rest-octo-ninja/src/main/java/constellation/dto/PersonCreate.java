@@ -1,7 +1,9 @@
 package constellation.dto;
 
 import java.util.ArrayList;
-
+/**
+*@see http://wiki.fasterxml.com/JacksonInFiveMinutes
+*/
 public class PersonCreate {
 	private int response_code;
 	public int getResponse_code() {

@@ -4,8 +4,20 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
-
+angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
+////$log configure
+.config(['$logProvider', function($logProvider){
+  $logProvider.debugEnabled(true);
+  //TODO:https://github.com/ThomasBurleson/angularjs-logDecorator
+}])
+///ENV_config
+.constant('CONFIG_ENV', {
+  'api_endpoint': 'http://localhost:8080/constellation/',
+  'api_version': '5.16.3',
+  'stomp_uri':'ws://www.xyz.com:61614/stomp',
+  'stomp_protocol':'v11.stomp',
+  'debug':false
+})
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -51,7 +63,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: "/playlists",
       views: {
         'menuContent' :{
-          templateUrl: "templates/playlists.html",
+          templateUrl: "templates/personlist.html",
           controller: 'PlaylistsCtrl'
         }
       }
@@ -61,7 +73,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: "/playlists/:playlistId",
       views: {
         'menuContent' :{
-          templateUrl: "templates/playlist.html",
+          templateUrl: "templates/persondetail.html",
           controller: 'PlaylistCtrl'
         }
       }

@@ -45,12 +45,16 @@
 	<properties>
 		<start-class>constellation.Application</start-class>
 	</properties>
-	
+
 	<repositories>
 		<repository>
 			<id>oss-jfrog-artifactory</id>
 			<name>oss-jfrog-artifactory-releases</name>
 			<url>http://oss.jfrog.org/artifactory/oss-release-local</url>
+		</repository>
+		<repository>
+			<id>spring-releases</id>
+			<url>http://repo.spring.io/libs-release</url>
 		</repository>
 	</repositories>
 	<build>
@@ -63,6 +67,10 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<pluginRepository>
+				<id>spring-releases</id>
+				<url>http://repo.spring.io/libs-release</url>
+			</pluginRepository>
 		</plugins>
 	</build>
 
