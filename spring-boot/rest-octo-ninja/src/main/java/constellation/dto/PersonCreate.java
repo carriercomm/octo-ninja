@@ -3,6 +3,7 @@ package constellation.dto;
 import java.util.ArrayList;
 /**
 *@see http://wiki.fasterxml.com/JacksonInFiveMinutes
+*@see http://www.faceplusplus.com/personcreate/
 */
 public class PersonCreate {
 	private int response_code;
