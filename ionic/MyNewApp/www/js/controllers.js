@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout,$http,$log,CONFIG_ENV,$ionicLoading) {
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -31,10 +31,24 @@ angular.module('starter.controllers', [])
       $scope.closeLogin();
     }, 1000);
   };
+  // Function testing.
+  $scope.test = function() {
+    $ionicLoading.show();
+    //PersonService testing
+    $http.get(CONFIG_ENV.api_endpoint+'person/create').
+        success(function(data) {
+          $log.info("PersonService create result:",data);
+          $ionicLoading.hide();
+        })
+        .error(function(error){
+          $log.error("PersonService create error:",error);
+          $ionicLoading.hide();
+        });
+  };
 })
 
 .controller('PersonListCtrl', function($scope) {
-  $scope.playlists = [
+  $scope.personlist = [
     { title: 'Reggae', id: 1 },
     { title: 'Chill', id: 2 },
     { title: 'Dubstep', id: 3 }

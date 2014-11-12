@@ -8,9 +8,9 @@
     <ion-tab title="个人" icon-on="ion-ios7-person" icon-off="ion-ios7-person-outline">
       <ion-content class="has-header">
         <ion-list>
-          <a class="item item-thumbnail-left" ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
+          <a class="item item-thumbnail-left" ng-repeat="person in personlist" href="#/app/personlist/{{person.id}}">
             <img src="img/ic_person_grey600_48dp.png">
-            <h2>{{playlist.title}}</h2>
+            <h2>{{person.title}}</h2>
             <p>Nine Inch Nails</p>
           </a>
         </ion-list>
