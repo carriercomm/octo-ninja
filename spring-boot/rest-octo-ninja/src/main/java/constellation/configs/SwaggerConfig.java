@@ -1,4 +1,4 @@
-package constellation;
+package constellation.configs;
 
 import javax.annotation.PostConstruct;
 

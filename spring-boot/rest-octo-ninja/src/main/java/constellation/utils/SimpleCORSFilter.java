@@ -1,4 +1,4 @@
-package constellation;
+package constellation.utils;
 
 import java.io.IOException;
 import javax.servlet.Filter;

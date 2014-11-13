@@ -1,4 +1,4 @@
-package constellation;
+package constellation.controllers;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,10 +26,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import constellation.ApiConsts;
-
 import java.security.SecureRandom;
 
+import constellation.consts.ApiConsts;
 
 @RestController
 public class PersonController {

@@ -1,4 +1,4 @@
-package constellation;
+package constellation.controllers;
 
 import java.io.File;
 import java.net.URL;
