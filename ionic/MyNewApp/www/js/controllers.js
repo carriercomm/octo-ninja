@@ -46,7 +46,37 @@ angular.module('starter.controllers', [])
         });
   };
 })
+.controller('SourceCtrl',function($scope,$log,$ionicLoading,$http,CONFIG_ENV){
+      $ionicLoading.show();
+      $scope.sourceFiles=[];
+      $scope.sourceVideos=[];
+      //Initialize function call
+      $scope.init = function(){
+        //SourceService get files
+        $http.get(CONFIG_ENV.api_endpoint+'source/files').
+            success(function(data) {
+              $log.info("SourceService get files result:",data);
+              $scope.sourceFiles = data;
+              $ionicLoading.hide();
+            })
+            .error(function(error){
+              $log.error("SourceService ge files error:",error);
+              $ionicLoading.hide();
+            });
+        //SourceService get videos
+        $http.get(CONFIG_ENV.api_endpoint+'source/videos').
+            success(function(data) {
+              $log.info("SourceService get videos result:",data);
+              $scope.sourceVideos = data;
+              $ionicLoading.hide();
+            })
+            .error(function(error){
+              $log.error("SourceService ge videos error:",error);
+              $ionicLoading.hide();
+            });
+      }
 
+})
 .controller('PersonListCtrl', function($scope) {
   $scope.personlist = [
     { title: 'Reggae', id: 1 },

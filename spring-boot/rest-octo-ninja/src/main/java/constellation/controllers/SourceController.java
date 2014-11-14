@@ -32,7 +32,10 @@ public class SourceController {
 	public List<SourceFile> files(){
 		List<SourceFile> files = new ArrayList<SourceFile>();
 		//TODO:dynamic listing files.
-		files.add(new SourceFile());
+		SourceFile file1 = new SourceFile();file1.setId(1);file1.setName("文件1");
+		SourceFile file2 = new SourceFile();file2.setId(2);file2.setName("文件2");
+		files.add(file1);
+		files.add(file2);
         return files;
 	}
 	@RequestMapping(method=RequestMethod.GET,value="constellation/source/videos")
@@ -40,7 +43,10 @@ public class SourceController {
 	public List<SourceVideo> videos(){
 		List<SourceVideo> videos = new ArrayList<SourceVideo>();
 		//TODO:dynamic listing videos.
-		videos.add(new SourceVideo());
+		SourceVideo video1 = new SourceVideo();video1.setId(1);video1.setName("视频1"); 
+		SourceVideo video2 = new SourceVideo();video2.setId(2);video2.setName("视频2"); 
+		videos.add(video1);
+		videos.add(video2);
         return videos;
 	}
 	

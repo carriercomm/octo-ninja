@@ -1,4 +1,4 @@
-<div class="modal">
+<div class="modal" ng-controller="SourceCtrl" ng-init="init()">
   <ion-header-bar>
     <h1 class="title">Source</h1>
     <div class="buttons">
@@ -13,8 +13,7 @@
             视频文件
           </div>
           <select>
-            <option selected>文件1</option>
-            <option>文件2</option>
+            <option ng-repeat="file in sourceFiles">{{file.name}}</option>
           </select>
         </label>
         <label class="item item-input item-select">
@@ -22,8 +21,7 @@
             摄像头
           </div>
           <select>
-            <option selected>摄像头1</option>
-            <option>摄像头2</option>
+            <option ng-repeat="video in sourceVideos">{{video.name}}</option>
           </select>
         </label>
         <label class="item">

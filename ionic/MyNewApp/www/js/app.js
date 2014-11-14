@@ -12,7 +12,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
 }])
 ///ENV_config
 .constant('CONFIG_ENV', {
-  'api_endpoint': 'http://localhost:8080/constellation/',
+  'api_endpoint': 'http://localhost:8080/octo-ninja/constellation/',
   'api_version': '5.16.3',
   'stomp_uri':'ws://www.xyz.com:61614/stomp',
   'stomp_protocol':'v11.stomp',
