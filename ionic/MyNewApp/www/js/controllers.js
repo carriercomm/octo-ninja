@@ -77,10 +77,10 @@ angular.module('starter.controllers', [])
       }
 
 })
-.controller('PersonListCtrl', function($scope) {
+.controller('PersonListCtrl', function($scope,$log,$ionicLoading,$http,CONFIG_ENV) {
   $scope.personlist = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
+    //{ title: 'Reggae', id: 1 },
+    //{ title: 'Chill', id: 2 },
     { title: 'Dubstep', id: 3 }
   ];
   //@example:http://krispo.github.io/angular-nvd3/#/
@@ -126,6 +126,55 @@ angular.module('starter.controllers', [])
           { "label" : "H" , "value" : 5.1387322875705 }
         ]
       }];
+
+      //Select option variables for counters:
+      $scope.personNamesSelOpts=[];
+      $scope.personTagsSelOpts=[];
+      $scope.personAggregateSelOpts=[];
+      var baseUrl = "http://localhost:9393/metrics";
+      $http.get(baseUrl + "/" + 'field-value-counters').
+          success(function(data) {
+            $log.info("getMenuOptions get result:",data.content);
+            $scope.personNamesSelOpts= data.content;
+            $scope.personTagsSelOpts= data.content;
+            $log.info($scope.personNamesSelOpts,$scope.personTagsSelOpts,$scope.personAggregateSelOpts);
+          })
+          .error(function(error){
+            $log.error("getMenuOptions error:",error);
+            $ionicLoading.hide();
+          });
+      $http.get(baseUrl + "/" + 'aggregate-counters').
+          success(function(data) {
+            $log.info("getMenuOptions get result:",data.content);
+            $scope.personAggregateSelOpts= data.content;
+            $log.info($scope.personNamesSelOpts,$scope.personTagsSelOpts,$scope.personAggregateSelOpts);
+          })
+          .error(function(error){
+            $log.error("getMenuOptions error:",error);
+            $ionicLoading.hide();
+          });
+
+      var barchart = aggregateCountBarChart()
+          .width(450)
+          .height(500);
+
+      var piechart = fvcPieChart()
+          .width(350)
+          .height(350)
+          .r(150);
+
+      var bubblechart = fvcBubbleChart()
+          .diameter(700);
+
+      var piemenu = d3.select("#piemenu select");
+
+      var barmenu = d3.select("#barmenu select")
+          .on("change", function() {
+            d3.select("#bar").select("svg").remove();
+            redraw();
+          });
+
+      var bubblemenu = d3.select("#bubblemenu select");
 })
 
 .controller('PersonDetailCtrl', function($scope, $stateParams) {
