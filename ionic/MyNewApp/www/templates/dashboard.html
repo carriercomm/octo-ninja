@@ -6,7 +6,7 @@
 
   <ion-tabs class="tabs-light tabs-icon-top tabs-has-header">
 
-    <ion-tab title="个人" icon-on="ion-ios7-person" icon-off="ion-ios7-person-outline" ng-controller="PersonListCtrl">
+    <ion-tab title="个人" icon-on="ion-ios7-person" icon-off="ion-ios7-person-outline" ng-controller="PersonTabCtrl">
       <ion-content class="has-header">
         <ion-list>
           <a class="item item-thumbnail-left" ng-repeat="person in personlist" href="#/app/personlist/{{person.id}}">
@@ -24,6 +24,11 @@
             <option ng-repeat="person in personNamesSelOpts">{{person.name}}</option>
           </select>
         </label>
+
+        <div style="padding: 3px;width:100%;height:100%;border: 1px solid red;background-color: #ffffff">
+          <nvd3 options="personNamesChartOptions" data="personNamesChartData"></nvd3>
+        </div>
+
         <label class="item item-input item-select">
           <div class="input-label">
             Field Value Counter(Bubble):
@@ -32,6 +37,11 @@
             <option ng-repeat="person in personTagsSelOpts">{{person.name}}</option>
           </select>
         </label>
+
+        <div style="padding: 3px;width:100%;height:100%;border: 1px solid red;background-color: #ffffff">
+          <nvd3 options="personTagsChartOptions" data="personTagsChartData"></nvd3>
+        </div>
+
         <label class="item item-input item-select">
           <div class="input-label">
             Aggregate Counter():
@@ -44,7 +54,7 @@
         <!--<canvas barchart="" options="options" data="chart" style="bottom:0;position:absolute;height:100%;width:100%"></canvas>-->
 
         <div style="padding: 3px;width:100%;height:100%;border: 1px solid red;background-color: #ffffff">
-          <nvd3 options="options" data="data"></nvd3>
+          <nvd3 options="personAggregateChartOptions" data="personAggregateChartData"></nvd3>
         </div>
       </ion-content>
     </ion-tab>
