@@ -24,6 +24,16 @@
             <option ng-repeat="video in sourceVideos">{{video.name}}</option>
           </select>
         </label>
+        <label class="item item-input ">
+          <div class="input-label">
+            目标图片
+          </div>
+          <label class="item item-radio" ng-repeat="target in sourceTargets">
+            <input type="radio" name="group">
+            <img src="img/{{target.image}}" alt="{{target.name}}"/>
+            <i class="positive radio-icon ion-checkmark"></i>
+          </label>
+        </label>
         <label class="item">
           <button class="button button-block button-positive" type="submit">源分析数据</button>
         </label>

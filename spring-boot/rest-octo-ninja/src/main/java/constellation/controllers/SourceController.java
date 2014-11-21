@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import constellation.dto.SourceFile;
-
+import constellation.dto.SourceTarget;
 import constellation.dto.SourceVideo;
 
 @RestController
@@ -49,5 +49,19 @@ public class SourceController {
 		videos.add(video2);
         return videos;
 	}
-	
+	@RequestMapping(method=RequestMethod.GET,value="constellation/source/targets")
+	@ApiOperation(httpMethod="GET",value="Get list of targets.")
+	public List<SourceTarget> targets(){
+		List<SourceTarget> targets = new ArrayList<SourceTarget>();
+		//TODO:dynamic listing targets.
+		SourceTarget target1 = new SourceTarget();target1.setId(1);target1.setName("人物1");target1.setImage("icon_a_01.png"); 
+		SourceTarget target2 = new SourceTarget();target2.setId(2);target2.setName("人物2");target2.setImage("icon_a_02.png"); 
+		SourceTarget target3 = new SourceTarget();target3.setId(3);target2.setName("人物3");target3.setImage("icon_a_03.png"); 
+		SourceTarget target4 = new SourceTarget();target4.setId(4);target2.setName("人物4");target4.setImage("icon_a_04.png"); 
+		targets.add(target1);
+		targets.add(target2);
+		targets.add(target3);
+		targets.add(target4);
+        return targets;
+	}
 }

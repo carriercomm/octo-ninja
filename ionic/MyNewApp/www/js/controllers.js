@@ -50,6 +50,7 @@ angular.module('starter.controllers', [])
       $ionicLoading.show();
       $scope.sourceFiles=[];
       $scope.sourceVideos=[];
+        $scope.sourceTargets=[];
       //Initialize function call
       $scope.init = function(){
         //SourceService get files
@@ -74,6 +75,17 @@ angular.module('starter.controllers', [])
               $log.error("SourceService ge videos error:",error);
               $ionicLoading.hide();
             });
+          //SourceService get targets
+          $http.get(CONFIG_ENV.api_endpoint+'source/targets').
+              success(function(data) {
+                  $log.info("SourceService get targets result:",data);
+                  $scope.sourceTargets = data;
+                  $ionicLoading.hide();
+              })
+              .error(function(error){
+                  $log.error("SourceService ge targets error:",error);
+                  $ionicLoading.hide();
+              });
       }
 
 })
