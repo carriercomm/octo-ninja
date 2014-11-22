@@ -10,6 +10,10 @@ screen shots
 
 ![Screenshot of "iOS Settings"](https://raw.githubusercontent.com/yangboz/octo-ninja/master/screenshot_ios_settings.png)
 
+![Screenshot of "iOS Modal_source"](https://raw.githubusercontent.com/yangboz/octo-ninja/master/screenshot_ios_source.png)
+
+![Screenshot of "iOS Section_person"](https://raw.githubusercontent.com/yangboz/octo-ninja/master/screenshot_ios_person_1.png)
+
 reference:
 ==========
 

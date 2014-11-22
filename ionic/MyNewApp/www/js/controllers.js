@@ -143,7 +143,7 @@ angular.module('starter.controllers', [])
       $scope.personNamesChartOptions = {
         chart: {
           type: 'pieChart',
-          height: 500,
+          height: 400,
           x: function(d){return d.key;},
           y: function(d){return d.y;},
           showLabels: true,
@@ -194,7 +194,7 @@ angular.module('starter.controllers', [])
       $scope.personTagsChartOptions = {
         chart: {
           type: 'pieChart',
-          height: 450,
+          height: 350,
           donut: true,
           x: function(d){return d.key;},
           y: function(d){return d.y;},
@@ -252,7 +252,7 @@ angular.module('starter.controllers', [])
       $scope.personAggregateChartOptions = {
         chart: {
           type: 'historicalBarChart',
-          height: 450,
+          height: 250,
           margin : {
             top: 20,
             right: 20,
@@ -382,4 +382,24 @@ angular.module('starter.controllers', [])
       }
 })
 .controller('GroupDetailCtrl', function($scope, $stateParams) {
-});
+})
+.controller('SettingCtrl', function($scope, $http, $rootScope, $location,$ionicModal,$ionicLoading,$ionicNavBarDelegate,
+                                    CONFIG_ENV,$log,$cordovaToast) {
+    $scope.settings = {};
+    $scope.settings.stompInterval = 5;
+//Websocket/Stomp testing:
+    var client = Stomp.client( CONFIG_ENV.stomp_uri, CONFIG_ENV.stomp_protocol );
+    client.connect( "", "",
+        function() {
+            client.subscribe("jms.topic.test",
+                function( message ) {
+                    $log.debug( message );
+                    $cordovaToast.show('Here is a message!', 'long', 'center').then(function(success) {});
+                },
+                { priority: 9 }
+            );
+            client.send("jms.topic.test", { priority: 9 }, "Pub/Sub over STOMP!");
+        }
+    );
+})
+;
