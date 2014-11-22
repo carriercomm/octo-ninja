@@ -14,6 +14,10 @@ screen shots
 
 ![Screenshot of "iOS Section_person"](https://raw.githubusercontent.com/yangboz/octo-ninja/master/screenshot_ios_person_1.png)
 
+![Screenshot of "iOS Section_group"](https://raw.githubusercontent.com/yangboz/octo-ninja/master/screenshot_ios_group_0.png)
+
+![Screenshot of "iOS Section_group"](https://raw.githubusercontent.com/yangboz/octo-ninja/master/screenshot_ios_group_2.png)
+
 reference:
 ==========
 

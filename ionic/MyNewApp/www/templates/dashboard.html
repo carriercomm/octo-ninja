@@ -59,19 +59,36 @@
       </ion-content>
     </ion-tab>
 
-    <ion-tab title="群体" icon-on="ion-ios7-people" icon-off="ion-ios7-people-outline">
+    <ion-tab title="群体" icon-on="ion-ios7-people" icon-off="ion-ios7-people-outline" ng-controller="GroupTabCtrl">
       <div class="tabs-top tabs-light">
         <div class="tabs">
-          <a class="tab-item active" href="#">
+          <a class="tab-item active" href="#" ng-click="changeViewIndex(0)">
             年龄分布
           </a>
-          <a class="tab-item" href="#">
+          <a class="tab-item" href="#" ng-click="changeViewIndex(1)">
             性别分布
           </a>
-          <a class="tab-item" href="#">
+          <a class="tab-item" href="#" ng-click="changeViewIndex(2)">
             族裔分布
           </a>
         </div>
+        <ion-slide-box style="width: 100%; margin:100px 0px 100px;text-align:center;" active-slide="selectedViewIndex">
+          <ion-slide>
+            <div style="padding: 3px;width:100%;height:100%;border: 1px solid red;background-color: #ffffff">
+              <nvd3 options="groupAgesChartOptions" data="groupAgesChartData"></nvd3>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div style="padding: 3px;width:100%;height:100%;border: 1px solid red;background-color: #ffffff">
+              <nvd3 options="groupGendersChartOptions" data="groupGendersChartData"></nvd3>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div style="padding: 3px;width:100%;height:100%;border: 1px solid red;background-color: #ffffff">
+              <nvd3 options="groupRacesChartOptions" data="groupRacesChartData"></nvd3>
+            </div>
+          </ion-slide>
+        </ion-slide-box>
       </div>
 
     </ion-tab>
