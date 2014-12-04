@@ -14,8 +14,8 @@ angular.module('starter.controllers', [])
 //        console.log("modal-login.html init!!!");
             $scope.loginModal = modal;
             $scope.loginModal.user = {
-                username: "employee1",
-                password: "passwordpassword"
+                username: "demo",
+                password: "demo"
             };
             //Login Modal
             if (window.localStorage['auth_ssg']) {
@@ -47,18 +47,15 @@ angular.module('starter.controllers', [])
             }, 1000);
         };
     })
-    .controller('MainFakeCtrl', function ($scope, $http, $rootScope, $location, $ionicModal) {
-
-    })
     .controller('DashCtrl', function ($scope) {
     })
 
-    .controller('FriendsCtrl', function ($scope, Friends) {
-        $scope.friends = Friends.all();
+    .controller('ServesCtrl', function ($scope, ServeService) {
+        $scope.serves = ServeService.all();
     })
 
-    .controller('FriendDetailCtrl', function ($scope, $stateParams, Friends) {
-        $scope.friend = Friends.get($stateParams.friendId);
+    .controller('ServeDetailCtrl', function ($scope, $stateParams, ServeService) {
+        $scope.serve = ServeService.get($stateParams.serveId);
     })
 
     .controller('AccountCtrl', function ($scope) {
