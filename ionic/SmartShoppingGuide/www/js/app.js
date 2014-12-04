@@ -5,7 +5,30 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'nvd3', 'ngResource', 'ngCordova', 'angularMoment'])
+//console.log("app:",app);
+//angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','nvd3','angular-websocket'])
+///Config
+//.config(function(WebSocketProvider){
+//    WebSocketProvider.prefix('').uri('ws://127.0.0.1:9080');
+// })
+////$log configure
+    .config(['$logProvider', function ($logProvider) {
+      $logProvider.debugEnabled(true);
+      //TODO:https://github.com/ThomasBurleson/angularjs-logDecorator
+    }])
+///ENV_config
+    .constant('CONFIG_ENV', {
+//var API_URL = "http://www.rushucloud.com:90/activiti-rest/";///usr/share/tomcat6/webapps/h5
+//var API_URL = "http://localhost:8080/activiti-rest/";
+//var API_URL = "/activiti-rest/";
+      'api_endpoint': 'http://localhost:8082/eip-rushucloud/',
+      'api_version': '5.16.3',
+      'stomp_uri': 'ws://127.0.0.1:61614/stomp',
+      //'stomp_uri':'ws://182.92.232.131:61614/stomp',
+      'stomp_protocol': 'v11.stomp'
+    })
+///App run
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
